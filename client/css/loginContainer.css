@@ -1,0 +1,13 @@
+#loginContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  text-align: center;
+}
+#loginContainer > * {
+  margin: 0.5rem;
+}
+#loginContainer .buttons button{
+  margin: 0.5rem;
+}

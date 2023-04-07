@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>M8</title>
+  <link rel="stylesheet" href="css/index.css" />
+  <link rel="stylesheet" href="css/selectionBar.css" />
+  <link rel="stylesheet" href="css/threat-element.css" />
+  <link rel="stylesheet" href="css/threatContainer.css" />
+  <link rel="stylesheet" href="css/loginContainer.css" />
+  <link rel="stylesheet" href="css/filterContainer.css" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+    rel="stylesheet" />
+  <link rel="icon" href="assets/logo.png" type="image/png">
+</head>
+
+<body>
+  <img id="report"
+    src="https://imgs.search.brave.com/7eCR_l_P7lJDTGg-MwYp975H-OdOsqahEPdmaXcv-6Y/rs:fit:512:512:1/g:ce/aHR0cHM6Ly9jZG4w/Lmljb25maW5kZXIu/Y29tL2RhdGEvaWNv/bnMvcGl4b24tMS8y/NC9GbGFnX2FsZXJ0/X3JlcG9ydC01MTIu/cG5n"
+    alt="report" />
+  <img id="bug"
+    src="https://imgs.search.brave.com/9hOTY2JRCRoxFkPRpmEFC2yLnQu04whdFNvmTGONnys/rs:fit:981:980:1/g:ce/aHR0cHM6Ly9jZG4u/b25saW5ld2ViZm9u/dHMuY29tL3N2Zy9p/bWdfNTIxMDYxLnBu/Zw"
+    alt="bug">
+
+  <div id="threatContainer">
+    <div id="threatView">
+      <div id="loading"></div>
+    </div>
+
+    <div id="threatButtons">
+      <button id="acceptThreat">Yes</button>
+      <button id="declineThreat">No</button>
+    </div>
+  </div>
+
+  <div id="sideContainer">
+    <div id="loginContainer">
+      You are not logged in yet. <br />
+      Please login to use all features.
+      <input type="text" id="loginUsername" placeholder="Username" />
+      <input type="password" id="loginPassword" placeholder="Password" />
+      <div class="buttons">
+        <button id="loginButton">Login</button>
+        <button id="registerButton">Register</button>
+      </div>
+
+    </div>
+
+    <div id="profileContainer" class="hidden">
+      <!-- [ ] profile container -->
+    </div>
+
+    <div id="filterContainer" class="hidden">
+      <h3>Ranks:</h3>
+      <div id="rankSlider"></div>
+      <h3>Languages:</h3>
+      <div id="languageFlags"></div>
+      <h3>Modes:</h3>
+      <div class="selection">
+        <button id="ranked">Ranked</button>
+        <button id="unranked">Unranked</button>
+        <button id="custom">Custom</button>
+      </div>
+      <h3>Voice Chats:</h3>
+      <div class="selection" id="vcSelection"></div>
+      <h3>Ranks:</h3>
+      <div class="selection" id="rankSelection"></div>
+      <div class="buttons">
+        <button id="filterButton">Filter</button>
+        <button id="resetButton">Reset</button>
+      </div>
+    </div>
+
+    <div id="chatContainer" class="hidden">
+      <!-- [ ] chat container -->
+    </div>
+
+    <div id="createContainer" class="hidden">
+      <!-- [ ] create container -->
+    </div>
+  </div>
+
+  <div id="selectionBar">
+    <div id="selectionBar_profile" class="selected">Profile</div>
+    <div id="selectionBar_filter">Filter</div>
+    <div id="selectionBar_chat">Chat</div>
+    <div id="selectionBar_create">Create</div>
+  </div>
+
+  <script src="js/index.js" type="module"></script>
+</body>
+
+</html>

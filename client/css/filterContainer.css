@@ -1,0 +1,150 @@
+#filterContainer {
+    padding: 50px;
+}
+
+#filterContainer h3:not(:first-child) {
+    margin-top: 15px;
+}
+
+#filterContainer h3 {
+    margin: 0;
+    margin-bottom: 10px;
+}
+
+#filterContainer label {
+    display: block;
+    width: 100%;
+}
+
+#filterContainer #rankSlider {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    position: relative;
+    height: 35px;
+}
+
+#filterContainer #rankSlider_track {
+    transition: none;
+    position: absolute;
+    top: 0;
+    left: 10%;
+    height: 10px;
+    width: 50%;
+    background: var(--red-2);
+    z-index: 1;
+    border-radius: 5px;
+}
+
+#filterContainer #rankSlider_path {
+    transition: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 10px;
+    width: 100%;
+    background: var(--white-1);
+    border-radius: 5px;
+}
+
+#filterContainer #rankSlider_startRank {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    z-index: 2;
+    font-weight: 600;
+}
+
+#filterContainer #rankSlider_endRank {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    z-index: 2;
+    font-weight: 600;
+}
+
+#filterContainer #languageFlags {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    grid-gap: 30px;
+    place-items: center;
+}
+
+#filterContainer #languageFlags img {
+    filter: brightness(0.8) grayscale(0.75);
+    width: 100%;
+    object-fit: cover;
+}
+
+#filterContainer #languageFlags img:hover {
+    filter: brightness(0.9) grayscale(0.25);
+}
+
+#filterContainer #languageFlags img.selected {
+    filter: brightness(1) grayscale(0);
+}
+
+#filterContainer .buttons {
+    margin-top: 50px;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+#filterContainer .buttons button {
+    width: 45%;
+    font-size: 1.2rem;
+    box-shadow: 5px 5px rgba(0, 0, 0, 0.25)
+}
+
+#filterContainer .buttons button:hover {
+    box-shadow: 3px 3px rgba(0, 0, 0, 0.25);
+    transform: translate(2px, 2px);
+}
+
+#filterContainer .buttons button:active {
+    box-shadow: 0px 0px rgba(0, 0, 0, 0.25);
+    transform: translate(5px, 5px);
+}
+
+#filterContainer .buttons button#filterButton {
+    background: var(--red-1);
+    color: var(--white-1);
+    border: none;
+}
+
+#filterContainer .buttons button#filterButton:hover {
+    background: var(--red-2);
+}
+
+#filterContainer .buttons button#filterButton:active {
+    background: transparent;
+    color: var(--red-1);
+}
+
+#filterContainer .buttons button#resetButton:active {
+    background: transparent;
+    color: var(--red-2);
+    border-color: transparent;
+}
+
+#filterContainer .selection {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    place-items: center;
+    grid-gap: 10px;
+}
+
+#filterContainer .selection#vcSelection {
+    grid-template-columns: repeat(4, 1fr) !important;
+}
+
+#filterContainer .selection button {
+    width: 100%;
+}
+
+
+#filterContainer .selection button.selected {
+    background: var(--red-1);
+    color: var(--white-1);
+    border-color: transparent;
+}

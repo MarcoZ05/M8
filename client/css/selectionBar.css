@@ -1,0 +1,29 @@
+#selectionBar {
+  height: 100%;
+  display: grid;
+  grid-template-rows: 1fr 1fr 1fr 1fr;
+  max-height: 100vh;
+  user-select: none;
+  align-items: center;
+  background-color: var(--white-2);
+}
+#selectionBar > div {
+  height: 50%;
+  padding: 75% 10px;
+  writing-mode: vertical-lr;
+  text-align: center;
+  text-orientation: sideways;
+  border-top: 2px solid var(--red-1);
+  border-bottom: 2px solid var(--red-1);
+  border-left: 5px solid var(--red-1);
+  border-radius: 25px 0 0 25px;
+}
+#selectionBar > div:hover {
+  background-color: var(--red-1);
+  color: var(--white-1);
+}
+#selectionBar > div.selected {
+  background-color: var(--red-2);
+  color: var(--white-1);
+  border-color: var(--red-2);
+}

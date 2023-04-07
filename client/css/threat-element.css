@@ -1,0 +1,76 @@
+threat-element {
+  border-radius: 25px;
+  background-color: var(--white-2);
+  box-shadow: 10px 10px 0 rgba(0, 0, 0, 0.25);
+  animation: swipeIn var(--animation-duration) ease forwards;
+}
+
+threat-element>.threatHeader {
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 50px;
+  background: linear-gradient(90deg, var(--red-1) 0%, var(--red-2) 500%);
+  border-radius: 25px 25px 0 0;
+}
+
+threat-element>.threatHeader>img {
+  position: relative;
+  top: 0;
+  left: 0;
+  width: 50px;
+  height: 50px;
+  object-fit: cover;
+  object-position: center;
+  border-radius: 50%;
+  -webkit-user-drag: none;
+  -khtml-user-drag: none;
+  -moz-user-drag: none;
+  -o-user-drag: none;
+}
+
+threat-element>.threatBody {
+  padding: 15px 45px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 10px;
+  background: linear-gradient(90deg, var(--white-1) -100%, var(--white-2) 100%);
+  border-radius: 0 0 25px 25px;
+}
+threat-element>.threatBody>* {
+  margin: 0;
+  padding: 0;
+  height: fit-content;
+}
+
+threat-element>.threatBody h3 {
+  margin-top: 10px;
+  margin-bottom: 0;
+}
+
+threat-element .languagesList {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  grid-gap: 5px;
+  place-items: center;
+  padding: 10px;
+}
+
+threat-element .languagesList img {
+  width: 100%;
+  object-fit: cover;
+  object-position: center;
+  -webkit-user-drag: none;
+  -khtml-user-drag: none;
+  -moz-user-drag: none;
+  -o-user-drag: none;
+}
+
+threat-element.declined {
+  animation: swipeAway var(--animation-duration) ease-in-out forwards;
+}
+
+threat-element.accepted {
+  animation: disappear var(--animation-duration) ease-in-out forwards;
+}
