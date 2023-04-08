@@ -24,15 +24,12 @@ connect(uri);
 app.post("/login", async (req, res) => {
   getUsers().then((users) => {
     const user = users.find((user) => user.name === req.body.name);
-    if (user) {
-      if (user.password === req.body.password) {
-        res.send(user);
-      } else {
-        res.send("wrong password");
-      }
-    } else {
-      res.send("user not found");
-    }
+
+    if (user === undefined)
+      return res.send({ error: true, msg: "user not found" });
+    if (user.password === req.body.password)
+      return res.send({ error: false, msg: "success" });
+    else return res.send({ error: true, msg: "wrong password" });
   });
 });
 
@@ -40,7 +37,7 @@ app.post("/login", async (req, res) => {
 app.post("/register", async (req, res) => {
   getUsers().then((users) => {
     const user = users.find((user) => user.name === req.body.name);
-    if (user) return res.send("user already exists");
+    if (user) return res.send({ error: true, msg: "user already exists" });
 
     const newUser = new mongoose.model("User")({
       name: req.body.name,
@@ -48,18 +45,23 @@ app.post("/register", async (req, res) => {
       avatarSrc: "",
       reports: [],
     });
-    // newUser.save();
-    res.send(newUser);
+    newUser.save();
+    res.send({ error: false, msg: "success" });
   });
 });
 
 // delete user
-app.post("/deleteUser", async (req) => {
-  getUsers().then((users) => {
-    const user = users.find((user) => user.name === req.body.name);
-
-    if (user) mongoose.model("User").deleteOne({ _id: user._id });
-  });
+app.post("/deleteUser", async (req, res) => {
+  // delete user from database that matches the name
+  mongoose
+    .model("User")
+    .deleteOne({ name: req.body.name })
+    .then(() => {
+      res.send({ error: false, msg: "success" });
+    })
+    .catch((err) => {
+      res.send({ error: true, msg: err });
+    });
 });
 
 // functions

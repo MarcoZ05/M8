@@ -7,8 +7,11 @@
   align-items: center;
   background-color: var(--white-2);
 }
-#selectionBar > div {
+
+#selectionBar>div {
+  position: relative;
   height: 50%;
+  width: 100%;
   padding: 75% 10px;
   writing-mode: vertical-lr;
   text-align: center;
@@ -18,12 +21,18 @@
   border-left: 5px solid var(--red-1);
   border-radius: 25px 0 0 25px;
 }
-#selectionBar > div:hover {
+
+#selectionBar>div:hover {
   background-color: var(--red-1);
-  color: var(--white-1);
+  color: var(--font-color);
+  transform: translateX(-10px);
+  width: calc(100% + 10px);
 }
-#selectionBar > div.selected {
+
+#selectionBar>div.selected {
   background-color: var(--red-2);
-  color: var(--white-1);
+  color: var(--font-color);
   border-color: var(--red-2);
+  transform: translateX(-10px);
+  width: calc(100% + 10px);
 }

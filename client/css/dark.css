@@ -1,0 +1,10 @@
+:root {
+  --red-1: hsl(0, 100%, 66%);
+  --red-2: hsl(0, 69%, 49%);
+  --white-1: hsl(223, 7%, 21%);
+  --white-2: hsl(225, 7%, 13%);
+  --animation-duration: 500ms;
+  --error-duration: 3s;
+  --font-color: hsl(0, 0%, 100%);
+  --shadow-color: hsla(0, 0%, 0%, 0.5);
+}

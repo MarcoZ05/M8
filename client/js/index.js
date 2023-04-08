@@ -8,6 +8,7 @@ import initFilter from "./initFilter.js";
 import login from "./login.js";
 import initProfile from "./initProfile.js";
 import loggedIn from "./loggedIn.js";
+import initWhitemode from "./initWhitemode.js";
 
 const threatView = document.getElementById("threatView");
 const reportBtn = document.getElementById("report");
@@ -22,10 +23,11 @@ let user = JSON.parse(localStorage.getItem("user"));
 if (user) {
   await login(user.name, user.password).then((res) => {
     res.text().then((text) => {
-      console.log(text);
-      if (text === "user not found" || text === "wrong password") {
+      const { error } = JSON.parse(text);
+
+      if (error) {
         localStorage.removeItem("user");
-        user = false;
+        user = null;
       }
     });
   });
@@ -42,5 +44,7 @@ if (user) {
 } else {
   initAuth();
 }
+
+initWhitemode()
 
 initRankSlider(document.getElementById("rankSlider"), RANKS);
