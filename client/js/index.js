@@ -7,6 +7,7 @@ import initAuth from "./initAuth.js";
 import initFilter from "./initFilter.js";
 import login from "./login.js";
 import initProfile from "./initProfile.js";
+import loggedIn from "./loggedIn.js";
 
 const threatView = document.getElementById("threatView");
 const reportBtn = document.getElementById("report");
@@ -14,8 +15,10 @@ const reportBtn = document.getElementById("report");
 const bugBtn = document.getElementById("bug");
 // [ ] report bug
 
-// check if user is logged in on this device
+// [ ] better structure for the code
+
 let user = JSON.parse(localStorage.getItem("user"));
+
 if (user) {
   await login(user.name, user.password).then((res) => {
     res.text().then((text) => {
@@ -28,13 +31,12 @@ if (user) {
   });
 }
 
-
 if (user) {
   document.getElementById("loginContainer").remove();
   document.getElementById("profileContainer").classList.remove("hidden");
   initSideBar();
   initFilter();
-  initProfile()
+  initProfile();
   newThreat(threatView);
   initThread(threatView);
 } else {

@@ -2,28 +2,13 @@
 const express = require("express");
 const path = require("path");
 const mongoose = require("mongoose");
-const { Schema } = mongoose;
 const { log } = require("console");
 const bodyParser = require("body-parser");
+const { initializeSchema } = require("./schema.js");
 require("dotenv").config();
 
-// Schema
-const UserSchema = new Schema({
-  name: String,
-  password: String,
-  avatarSrc: String,
-  reports: [{ reason: String, date: Date, info: [String] }],
-});
-mongoose.model("User", UserSchema);
-const ThreatSchema = new Schema({
-  userSchema: UserSchema,
-  ranks: [String],
-  languages: [String],
-  platform: String,
-  date: Date,
-  other: [String],
-});
-mongoose.model("Threat", ThreatSchema);
+// initialize schema
+const { UserSchema, ThreatSchema } = initializeSchema();
 
 // express server
 const app = express();
