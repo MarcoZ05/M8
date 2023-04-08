@@ -70,17 +70,40 @@
 }
 
 #threatContainer>#threatView>#loading {
+  position: relative;
   width: 100px;
   height: 100px;
   border-radius: 50%;
-  background: transparent;
-  border-style: solid;
-  border-width: 10px;
-  border: 10px solid var(--white-2);
-  border-top: 10px solid var(--red-1);
-  border-right: 10px solid var(--red-2);
-  animation: loading .75s infinite ease-in-out;
 }
+
+#threatContainer>#threatView>#loading::before {
+  content: "";
+  position: absolute;
+  top: -10px;
+  left: -10px;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background: transparent;
+  border: 10px solid transparent;
+  border-bottom: 10px solid var(--red-1);
+  animation: loading 1s ease infinite;
+}
+
+#threatContainer>#threatView>#loading::after {
+  content: "";
+  position: absolute;
+  top: -10px;
+  left: -10px;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background: transparent;
+  border: 10px solid transparent;
+  border-left: 10px solid var(--red-2);
+  animation: loading 1s linear infinite;
+}
+
 
 @keyframes loading {
   0% {
