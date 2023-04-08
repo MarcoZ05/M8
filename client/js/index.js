@@ -6,31 +6,37 @@ import newThreat from "./newThreat.js";
 import initAuth from "./initAuth.js";
 import initFilter from "./initFilter.js";
 import login from "./login.js";
+import initProfile from "./initProfile.js";
 
 const threatView = document.getElementById("threatView");
-
 const reportBtn = document.getElementById("report");
 // [ ] report threat
 const bugBtn = document.getElementById("bug");
 // [ ] report bug
 
+// check if user is logged in on this device
 let user = JSON.parse(localStorage.getItem("user"));
-await login(user.name, user.password).then((res) => {
-  res.text().then((text) => {
-    if (text === "user not found" || text === "wrong password") {
-      localStorage.removeItem("user");
-      user = false;
-    }
+if (user) {
+  await login(user.name, user.password).then((res) => {
+    res.text().then((text) => {
+      console.log(text);
+      if (text === "user not found" || text === "wrong password") {
+        localStorage.removeItem("user");
+        user = false;
+      }
+    });
   });
-});
+}
 
-newThreat(threatView);
-initThread(threatView);
 
 if (user) {
+  document.getElementById("loginContainer").remove();
+  document.getElementById("profileContainer").classList.remove("hidden");
   initSideBar();
   initFilter();
-  document.getElementById("loginContainer").remove();
+  initProfile()
+  newThreat(threatView);
+  initThread(threatView);
 } else {
   initAuth();
 }

@@ -1,8 +1,7 @@
 export default function initSideBar() {
     const profile = {
       selectionBar: document.getElementById("selectionBar_profile"),
-      // if not logged in
-      sideContainer: document.getElementById("loginContainer"),
+      sideContainer: document.getElementById("profileContainer"),
     };
     const filter = {
       selectionBar: document.getElementById("selectionBar_filter"),

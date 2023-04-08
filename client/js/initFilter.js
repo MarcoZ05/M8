@@ -27,7 +27,5 @@ export default function initFilter() {
       id = id.trim();
       document.getElementById(id).classList.remove("selected");
     });
-
-    // [ ] reset filter
   });
 }

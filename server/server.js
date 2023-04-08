@@ -4,7 +4,7 @@ const path = require("path");
 const mongoose = require("mongoose");
 const { Schema } = mongoose;
 const { log } = require("console");
-const bodyParser = require('body-parser');
+const bodyParser = require("body-parser");
 require("dotenv").config();
 
 // Schema
@@ -12,7 +12,7 @@ const UserSchema = new Schema({
   name: String,
   password: String,
   avatarSrc: String,
-  reports: [String],
+  reports: [{ reason: String, date: Date, info: [String] }],
 });
 mongoose.model("User", UserSchema);
 const ThreatSchema = new Schema({
@@ -55,18 +55,25 @@ app.post("/login", async (req, res) => {
 app.post("/register", async (req, res) => {
   getUsers().then((users) => {
     const user = users.find((user) => user.name === req.body.name);
-    if (user) {
-      res.send("user already exists");
-    } else {
-      const newUser = new mongoose.model("User")({
-        name: req.body.name,
-        password: req.body.password,
-        avatarSrc: "",
-        reports: [],
-      });
-      newUser.save();
-      res.send(newUser);
-    }
+    if (user) return res.send("user already exists");
+
+    const newUser = new mongoose.model("User")({
+      name: req.body.name,
+      password: req.body.password,
+      avatarSrc: "",
+      reports: [],
+    });
+    // newUser.save();
+    res.send(newUser);
+  });
+});
+
+// delete user
+app.post("/deleteUser", async (req) => {
+  getUsers().then((users) => {
+    const user = users.find((user) => user.name === req.body.name);
+
+    if (user) mongoose.model("User").deleteOne({ _id: user._id });
   });
 });
 

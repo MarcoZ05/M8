@@ -33,6 +33,7 @@ body
   --white-1: #fff;
   --white-2: #ebebeb;
   --animation-duration: 500ms;
+  --error-duration: 3s;
 }
 
 ::selection {
@@ -152,6 +153,18 @@ button:active {
   border-color: var(--red-1);
 }
 
+.error {
+  color: var(--red-1);
+  border: var(--red-1) 2px solid;
+  padding: 10px;
+  text-align: center;
+  position: absolute;
+  bottom: 10px;
+  left: calc(20% - 10px);
+  border-radius: 10px;
+  animation: error var(--error-duration) ease-in-out;
+}
+
 @keyframes swipeAway {
   0% {
     transform: translateX(0);
@@ -179,5 +192,27 @@ button:active {
 
   100% {
     transform: translateX(0);
+  }
+}
+
+@keyframes error {
+  0% {
+    opacity: 0;
+    transform: translateY(500%);
+  }
+
+  10% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  90% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  100% {
+    opacity: 0;
+    transform: translateY(500%);
   }
 }

@@ -11,6 +11,7 @@ export function getDateText(date) {
   return "Just now";
 }
 
+export const ERROR_DURATION = 3000;
 export const ANIMATION_DURATION = 500;
 
 export const RANKS = [
