@@ -46,18 +46,21 @@
     <div id="loginContainer">
       You are not logged in yet. <br />
       Please login to use all features.
-      <input type="text" id="loginUsername" placeholder="Username" />
-      <input type="password" id="loginPassword" placeholder="Password" />
+      <!-- make input that doesnt get autocompleted -->
+      <input type="text" id="loginUsername" placeholder="Username" autocomplete="off" />
+      <input type="password" id="loginPassword" placeholder="Password" autocomplete="off" />
       <div class="buttons">
         <button id="loginButton">Login</button>
         <button id="registerButton">Register</button>
       </div>
 
+      <!-- [ ] register container (2xPW + MAIL) -->
+
     </div>
 
     <div id="profileContainer" class="hidden">
       <div id="profileView">
-        
+
       </div>
 
       <div id="profileButtons">

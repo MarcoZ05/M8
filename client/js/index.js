@@ -48,3 +48,6 @@ if (user) {
 initWhitemode()
 
 initRankSlider(document.getElementById("rankSlider"), RANKS);
+
+
+// [ ] add rating of users

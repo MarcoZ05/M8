@@ -51,6 +51,7 @@ body
   transition: 0.15s linear;
   font-family: "Montserrat", sans-serif;
   color: var(--font-color);
+  user-select: none;
 }
 
 body {
@@ -118,7 +119,7 @@ input {
   outline: none;
   background: transparent;
   border-bottom: 1px solid #000;
-  color: #000;
+  color: var(--font-color);
   padding: 0.5rem;
 }
 
